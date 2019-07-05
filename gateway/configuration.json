@@ -1,0 +1,27 @@
+﻿{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/api/user/{everything}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/user/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "ServiceName": "AuthServ-1",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    "UseServiceDiscovery": true,
+    //"ServiceDiscoveryProvider": {
+    //  "Type": "Eureka",
+    //  "Host": "http://40.118.187.209/",
+    //  "Port": "80"
+    //}
+    "ServiceDiscoveryProvider": {
+      "Host": "138.91.246.68",
+      "Port": 80,
+      "Type": "Consul"
+    }
+  }
+}
